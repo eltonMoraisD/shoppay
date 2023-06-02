@@ -40,26 +40,28 @@ export default function Top() {
             onMouseOver={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}
           >
-            {loggedIn ? (
-              <li>
-                <div className={styles.flex}>
-                  <img
-                    src="https://avatars.githubusercontent.com/u/39710764?v=4"
-                    alt=""
-                  />
-                  <span>Elton</span>
-                  <RiArrowDropDownFill />
-                </div>
-              </li>
-            ) : (
-              <li className={styles.li}>
-                <div className={styles.flex}>
-                  <RiAccountPinCircleLine />
-                  <span>Account</span>
-                  <RiArrowDropDownFill />
-                </div>
-              </li>
-            )}
+            <ol>
+              {loggedIn ? (
+                <li>
+                  <div className={styles.flex}>
+                    <img
+                      src="https://avatars.githubusercontent.com/u/39710764?v=4"
+                      alt=""
+                    />
+                    <span>Elton</span>
+                    <RiArrowDropDownFill />
+                  </div>
+                </li>
+              ) : (
+                <li className={styles.li}>
+                  <div className={styles.flex}>
+                    <RiAccountPinCircleLine />
+                    <span>Account</span>
+                    <RiArrowDropDownFill />
+                  </div>
+                </li>
+              )}
+            </ol>
             {visible && <UserMenu loggedIn={loggedIn} />}
           </li>
         </ul>
