@@ -8,6 +8,7 @@ export default function Header({ country }) {
     <div className={styles.header}>
       {/*this is the banner image*/}
       <Ad />
+
       <Top country={country} />
       <Main />
     </div>

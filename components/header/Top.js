@@ -5,9 +5,11 @@ import { RiAccountPinCircleLine, RiArrowDropDownFill } from "react-icons/ri";
 import Link from "next/link";
 import { useState } from "react";
 import UserMenu from "./UserMenu";
+import { useSession } from "next-auth/react";
 
 export default function Top({ country }) {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const { data: session } = useSession();
+
   const [visible, setVisible] = useState(false);
 
   return (
@@ -39,14 +41,11 @@ export default function Top({ country }) {
             onMouseLeave={() => setVisible(false)}
           >
             <ol>
-              {loggedIn ? (
+              {session ? (
                 <li>
                   <div className={styles.flex}>
-                    <img
-                      src="https://avatars.githubusercontent.com/u/39710764?v=4"
-                      alt=""
-                    />
-                    <span>Elton</span>
+                    <img src={session.user.image} alt="" />
+                    <span>{session.user.name}</span>
                     <RiArrowDropDownFill />
                   </div>
                 </li>
@@ -60,7 +59,7 @@ export default function Top({ country }) {
                 </li>
               )}
             </ol>
-            {visible && <UserMenu loggedIn={loggedIn} />}
+            {visible && <UserMenu loggedIn={session} />}
           </li>
         </ul>
       </div>

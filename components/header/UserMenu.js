@@ -1,5 +1,6 @@
 import styles from "./styles.module.scss";
 import Link from "next/link";
+import { signOut, signIn } from "next-auth/react";
 
 export default function UserMenu({ loggedIn }) {
   return (
@@ -7,21 +8,19 @@ export default function UserMenu({ loggedIn }) {
       <h4>Welcome to Shoppay !</h4>
       {loggedIn ? (
         <div className={styles.flex}>
-          <img
-            src="https://avatars.githubusercontent.com/u/39710764?v=4"
-            alt=""
-            className={styles.menu__img}
-          />
+          <img src={loggedIn.user.image} alt="" className={styles.menu__img} />
           <div className={styles.col}>
             <span>Welcome Back,</span>
-            <h3>Elton</h3>
-            <span>Sign Out</span>
+            <h3>{loggedIn.user.name}</h3>
+            <span onClick={() => signOut()}>Sign Out</span>
           </div>
         </div>
       ) : (
         <div className={styles.flex}>
           <button className={styles.btn_primary}>Register</button>
-          <button className={styles.btn_outlined}>Login</button>
+          <button onClick={() => signIn()} className={styles.btn_outlined}>
+            Login
+          </button>
         </div>
       )}
       <ul>
