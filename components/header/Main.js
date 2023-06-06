@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 export default function Main() {
   const { cart } = useSelector((state) => ({ ...state }));
-  console.log(cart);
+
   return (
     <div className={styles.main}>
       <div className={styles.main__container}>

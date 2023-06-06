@@ -6,20 +6,18 @@ import Link from "next/link";
 import { useState } from "react";
 import UserMenu from "./UserMenu";
 
-export default function Top() {
-  const [loggedIn, setLoggedIn] = useState(true);
+export default function Top({ country }) {
+  const [loggedIn, setLoggedIn] = useState(false);
   const [visible, setVisible] = useState(false);
+
   return (
     <div className={styles.top}>
       <div className={styles.top__container}>
         <div></div>
         <ul className={styles.top__list}>
           <li className={styles.li}>
-            <img
-              src="https://flagdownload.com/wp-content/uploads/Flag_of_Luxembourg_Flat_Round-512x512.png"
-              alt="flag"
-            />
-            <span>Luxembourg / eur</span>
+            <img src={country.flag} alt="flag" />
+            <span>{country.name} / eur</span>
           </li>
           <li className={styles.li}>
             <MdSecurity />

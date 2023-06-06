@@ -9,11 +9,11 @@ export default function Copyright({ country }) {
       <section>
         <ul>
           {data.map((link) => (
-            <li>{<Link href={link.link}>{link.name}</Link>}</li>
+            <li key={link.id}>{<Link href={link.link}>{link.name}</Link>}</li>
           ))}
           <li>
             <a>
-              <IoLocationSharp /> Luxembourg
+              <IoLocationSharp /> {country.name}
             </a>
           </li>
         </ul>
@@ -23,22 +23,27 @@ export default function Copyright({ country }) {
 }
 const data = [
   {
+    id: 1,
     name: "Privacy Center",
     link: "",
   },
   {
+    id: 2,
     name: "Privacy & Cookie Policy",
     link: "",
   },
   {
+    id: 3,
     name: "Manage Cookies",
     link: "",
   },
   {
+    id: 4,
     name: "Terms & Conditions",
     link: "",
   },
   {
+    id: 5,
     name: "Copyright Notice",
     link: "",
   },

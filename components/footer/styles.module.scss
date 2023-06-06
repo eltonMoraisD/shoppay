@@ -9,7 +9,7 @@
     padding: 1rem;
     display: grid;
     grid-template-areas:
-    "payment"
+      "payment"
       "links"
       "socials"
       "newsletter"
@@ -19,13 +19,14 @@
     padding: 1rem;
 
     @media(min-width: 800px) {
-      grid-template-areas: 
+      grid-template-areas:
         "links socials"
         "links newsletter"
         "copyright payment"
       ;
     }
-    @media(min-width: 1200px){
+
+    @media(min-width: 1200px) {
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -88,7 +89,7 @@
           &:hover {
             color: $blue-color;
           }
-         
+
         }
       }
     }

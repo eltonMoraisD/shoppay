@@ -1,13 +1,14 @@
-import Ad from "../header/Ad";
-import styles from "../header/styles.module.scss";
-import Top from "../header/Top";
+import Ad from "./Ad";
+import styles from "./styles.module.scss";
+import Top from "./Top";
 import Main from "./Main";
 
-export default function Header() {
+export default function Header({ country }) {
   return (
     <div className={styles.header}>
+      {/*this is the banner image*/}
       <Ad />
-      <Top />
+      <Top country={country} />
       <Main />
     </div>
   );
